@@ -1,3 +1,5 @@
+using WebApp.Repositry;
+
 namespace WebApp
 {
     public class Program
@@ -8,6 +10,8 @@ namespace WebApp
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddTransient<Iuser, UserData>();
 
             var app = builder.Build();
 

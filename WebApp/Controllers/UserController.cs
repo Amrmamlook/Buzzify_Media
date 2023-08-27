@@ -7,8 +7,11 @@ namespace WebApp.Controllers
 {
     public class UserController : Controller
     {
-        UserData userData = new UserData();
-        
+        Iuser userData;
+        public UserController( Iuser _userData)
+        {
+            userData = _userData;       
+        }
         public IActionResult Index(int id)
         {
             User user = userData.GetById(id);

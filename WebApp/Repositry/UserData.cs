@@ -3,7 +3,7 @@ using WebApp.Models;
 
 namespace WebApp.Repositry
 {
-    public class UserData
+    public class UserData:Iuser
     {
         public DataContext DataContext = new DataContext();
         public List<User>GetAll()
