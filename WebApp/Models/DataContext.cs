@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApp.Models
 {
     public class DataContext:DbContext
     {
+        DataContext context = new DataContext();
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
            
@@ -20,7 +22,13 @@ namespace WebApp.Models
             {
                 e.Property(e=>e.DeparId).IsRequired(false);
             });
+            modelBuilder.Entity<User>()
+            .HasIndex(u => u.Email)
+            .IsUnique();
         }
+       
+       
+
     }
      
 }

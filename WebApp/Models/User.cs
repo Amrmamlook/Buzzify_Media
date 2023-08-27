@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApp.Models
@@ -29,7 +30,9 @@ namespace WebApp.Models
 
         [DataType(DataType.EmailAddress)]
         [Required]
+        
         [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = " Invalid Email Format")]
+        [UniqueEmail]
         public string Email { get; set; }
         public virtual Department? Department { get; set; }
 
